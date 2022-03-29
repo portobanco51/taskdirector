@@ -109,7 +109,7 @@ function App() {
 
             {
               editMode ? <button
-                className={"btn btn-info btn-block"}
+                className={"btn btn-warning btn-block"}
                 type="submit">
                 Edit Task
               </button> : <button
