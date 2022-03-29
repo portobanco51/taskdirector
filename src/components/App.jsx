@@ -41,7 +41,8 @@ function App() {
   }
 
   const edit = (task) => {
-    setEditMode(true)
+    setErr('')
+    editMode ? setErr('Already Editing!') : setEditMode(true)
     setTask(task.taskName)
     setId(task.id)
   }
@@ -73,24 +74,8 @@ function App() {
       <h1 className="text-center">Task Manager</h1>
       <hr />
       <div className="row">
-        <div className="col-8">
-          <h4 className="text-center">Tasks List</h4>
-          <ul className="list-group">
-            {taskList.map((task) => (
-              <li key={task.id} className="list-group-item text-dark text-capitalize mb-2">
-                <span className="lead font-weight-bold">{task.taskName.toUpperCase()}</span>
-                <button onClick={() => removeTask(task.id)} className="btn btn-danger btn-sm float-right mx-2">
-                  Remove
-                </button>
-                <button onClick={() => edit(task)} className="btn btn-warning btn-sm float-right">
-                  Edit
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="col-4">
-          <h4 className="text-center">
+        <div className="col-5">
+          <h4 className="text-center mb-4">
             {editMode ? "Edit Task" : "Add a Task"}
           </h4>
           <form onSubmit={editMode ? editTask : addTask}>
@@ -121,6 +106,22 @@ function App() {
               Cancel
             </button>
           </form>
+        </div>
+        <div className="col-7">
+          <h4 className="text-center mb-4">Tasks List</h4>
+          <ul className="list-group">
+            {taskList.map((task) => (
+              <li key={task.id} className="list-group-item text-dark text-capitalize mb-2 shadow">
+                <span className="lead font-weight-bold">{task.taskName.toUpperCase()}</span>
+                <button onClick={() => removeTask(task.id)} className="btn btn-danger btn-sm float-right mx-2">
+                  Remove
+                </button>
+                <button onClick={() => edit(task)} className="btn btn-warning btn-sm float-right">
+                  Edit
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div >

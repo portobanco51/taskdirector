@@ -1,4 +1,8 @@
 body {
-    background-color: #3c4d61;
-    color: #fff;
+    background-color: #d0d8e0;
+    color: #000;
+}
+
+.shadow {
+    box-shadow: 0 8px 15px;
 }
