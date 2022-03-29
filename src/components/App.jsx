@@ -112,7 +112,7 @@ function App() {
           <ul className="list-group">
             {taskList.map((task) => (
               <li key={task.id} className="list-group-item text-dark text-capitalize mb-2 shadow">
-                <span className="lead font-weight-bold">{task.taskName.toUpperCase()}</span>
+                <span className="lead font-weight-bold">{task.taskName}</span>
                 <button onClick={() => removeTask(task.id)} className="btn btn-danger btn-sm float-right mx-2">
                   Remove
                 </button>
