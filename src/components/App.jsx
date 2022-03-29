@@ -69,6 +69,24 @@ function App() {
     setEditMode(false)
   }
 
+  const clearList = () => {
+    swal({
+      title: 'The tasks list will be cleared permanently!',
+      text: 'Continue?',
+      icon: 'warning',
+      dangerMode: true,
+      buttons: true
+    })
+      .then((value) => {
+        if (value) {
+          setTaskList("")
+          setEditMode(false)
+          setTask('')
+          swal('Successfully Cleared!', '  ', 'success', { buttons: false, timer: 1200 })
+        }
+      })
+  }
+
   return (
     <div className="container mt-5">
       <h1 className="text-center">Task Manager</h1>
@@ -86,7 +104,9 @@ function App() {
               onChange={(e) => setTask(e.target.value)}
               value={task}
             />
-            <h6 className="text-danger text-center" style={{ 'fontSize': '12px' }}>{err}</h6>
+
+            {err ? <h6 className="text-danger text-center" style={{ 'fontSize': '12px' }}>{err}</h6> : null}
+
             {
               editMode ? <button
                 className={"btn btn-info btn-block"}
@@ -105,22 +125,32 @@ function App() {
               hidden={editMode ? false : true}>
               Cancel
             </button>
+            {
+              taskList.length !== 0 ? (
+                <button onClick={clearList} type="reset" className="btn btn-dark btn-block">Clear</button>
+              ) : null
+            }
           </form>
         </div>
         <div className="col-7">
           <h4 className="text-center mb-4">Tasks List</h4>
           <ul className="list-group">
-            {taskList.map((task) => (
-              <li key={task.id} className="list-group-item text-dark text-capitalize mb-2 shadow">
-                <span className="lead font-weight-bold">{task.taskName}</span>
-                <button onClick={() => removeTask(task.id)} className="btn btn-danger btn-sm float-right mx-2">
-                  Remove
-                </button>
-                <button onClick={() => edit(task)} className="btn btn-warning btn-sm float-right">
-                  Edit
-                </button>
-              </li>
-            ))}
+            {taskList.length === 0
+              ? (<li className="list-group-item text-dark text-capitalize mb-2 shadow font-weight-bold text-center text-muted">no tasks pending</li>)
+              : (
+                taskList.map((task) => (
+                  <li key={task.id} className="list-group-item text-dark text-capitalize mb-2 shadow">
+                    <span className="lead font-weight-bold">{task.taskName}</span>
+                    <button onClick={() => removeTask(task.id)} className="btn btn-danger btn-sm float-right mx-2">
+                      Remove
+                    </button>
+                    <button onClick={() => edit(task)} className="btn btn-warning btn-sm float-right">
+                      Edit
+                    </button>
+                  </li>
+                ))
+              )}
+
           </ul>
         </div>
       </div>
