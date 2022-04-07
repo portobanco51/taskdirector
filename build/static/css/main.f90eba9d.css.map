@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/main.f90eba9d.css","mappings":"AAAA,KACI,wBAAyB,CACzB,UACJ,CAEA,QACI,qBACJ","sources":["css/style.css"],"sourcesContent":["body {\r\n    background-color: #d0d8e0;\r\n    color: #000;\r\n}\r\n\r\n.shadow {\r\n    box-shadow: 0 8px 15px;\r\n}\r\n"],"names":[],"sourceRoot":""}

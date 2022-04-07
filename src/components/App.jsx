@@ -89,11 +89,11 @@ function App() {
 
   return (
     <div className="container mt-5">
-      <h1 className="text-center">Task Manager</h1>
+      <h1 className="text-center header">Task Manager</h1>
       <hr />
       <div className="row">
         <div className="col-5">
-          <h4 className="text-center mb-4">
+          <h4 className="text-center mb-4 header">
             {editMode ? "Edit Task" : "Add a Task"}
           </h4>
           <form onSubmit={editMode ? editTask : addTask}>
@@ -133,14 +133,14 @@ function App() {
           </form>
         </div>
         <div className="col-7">
-          <h4 className="text-center mb-4">Tasks List</h4>
+          <h4 className="text-center mb-4 header">Tasks List</h4>
           <ul className="list-group">
             {taskList.length === 0
-              ? (<li className="list-group-item text-dark text-capitalize mb-2 shadow font-weight-bold text-center text-muted">no tasks pending</li>)
+              ? (<li className="list-group-item text-capitalize mb-2 shadow font-weight-bold text-center bg header">no tasks pending</li>)
               : (
                 taskList.map((task) => (
-                  <li key={task.id} className="list-group-item text-dark text-capitalize mb-2 shadow">
-                    <span className="lead font-weight-bold">{task.taskName}</span>
+                  <li key={task.id} className="list-group-item text-dark text-capitalize mb-2 shadow bg">
+                    <span className="lead font-weight-bold header">{task.taskName}</span>
                     <button onClick={() => removeTask(task.id)} className="btn btn-danger btn-sm float-right mx-2">
                       Remove
                     </button>
