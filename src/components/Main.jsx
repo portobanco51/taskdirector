@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import swal from '@sweetalert/with-react'
 import UserInput from "./UserInput";
 import TaskList from "./TaskList";
+import MetaImg from '../assets/media/metaImg.png';
 
 
 const Main = () => {
@@ -114,7 +115,7 @@ const Main = () => {
             <UserInput editMode={editMode} editTask={editTask} addTask={addTask} setTask={setTask} task={task} err={err} cancelEdit={cancelEdit} taskList={taskList} clearList={clearList} />
 
             <TaskList taskList={taskList} removeTask={removeTask} edit={edit} />
-
+            <img src={MetaImg} alt="metaImg" className="meta-img" />
         </div>
     )
 }
