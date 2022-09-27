@@ -53,7 +53,6 @@ const Main = () => {
                     setEditMode(false)
                     setTask('')
                     swal('Successfully Removed!', '  ', 'success', { buttons: false, timer: 1200 })
-                    console.log(`Task#${id}`)
                     localStorage.removeItem(`Task#${id}`)
                     saveLocal(`TaskList`, newList)
                 }

@@ -1,6 +1,6 @@
 {
-    "name": "task_manager",
-    "short_name": "task_manager",
+    "name": "task_director",
+    "short_name": "task_director",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
